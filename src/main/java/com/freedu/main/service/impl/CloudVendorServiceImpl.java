@@ -2,10 +2,14 @@ package com.freedu.main.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.freedu.main.model.CloudVendor;
 import com.freedu.main.repository.CloudVendorRepository;
 import com.freedu.main.service.CloudVendorService;
 
+
+@Service
 public class CloudVendorServiceImpl implements CloudVendorService{
 	
 	CloudVendorRepository cloudVendorRepository;
@@ -29,8 +33,8 @@ public class CloudVendorServiceImpl implements CloudVendorService{
 
 	@Override
 	public String deleteCloudVendor(String cloudVendorId) {
-		// TODO Auto-generated method stub
-		return null;
+		cloudVendorRepository.deleteById(cloudVendorId);
+		return "Success";
 	}
 
 	@Override
