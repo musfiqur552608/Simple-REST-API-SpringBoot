@@ -16,7 +16,7 @@ import com.freedu.main.model.CloudVendor;
 
 
 
-public class CloudAPIService {
+public class CloudVendorController {
 	CloudVendor cloudVendor;
 	
 	@GetMapping("{vendorId}")
