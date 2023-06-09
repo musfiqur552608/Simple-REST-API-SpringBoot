@@ -44,8 +44,7 @@ public class CloudVendorServiceImpl implements CloudVendorService{
 
 	@Override
 	public List<CloudVendor> getAllCloudVendor() {
-		// TODO Auto-generated method stub
-		return null;
+		return cloudVendorRepository.findAll();
 	}
 
 }
