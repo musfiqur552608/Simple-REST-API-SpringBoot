@@ -2,6 +2,8 @@ package com.freedu.main.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freedu.main.model.CloudVendor;
+import com.freedu.main.response.ResponseHandler;
 import com.freedu.main.service.CloudVendorService;
 
 @RestController
@@ -29,8 +32,10 @@ public class CloudVendorController {
 	}
 
 	@GetMapping("{vendorId}")
-	public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
-		return cloudVendorService.getCloudVendor(vendorId);
+	public ResponseEntity<Object> getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
+		
+		return ResponseHandler.responseBuilder("Requested Vendor Details are given here!", HttpStatus.OK, cloudVendorService.getCloudVendor(vendorId));
+		
 	}
 	
 	@GetMapping()
